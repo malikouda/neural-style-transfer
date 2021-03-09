@@ -13,22 +13,14 @@ def transform_images(style_img, content_img):
     warnings.filterwarnings("ignore")
 
     import torch
-    import torch.nn as nn
-    import torch.nn.functional as F
-    import torch.optim as optim
 
     from PIL import Image
-    import matplotlib.pyplot as plt
 
     import torchvision.transforms as transforms
     import torchvision.models as models
 
-    import copy
-    import requests
     import io
 
-    # x = requests.get('https://pytorch.org/tutorials/_static/img/neural-style/picasso.jpg')
-    # x.content
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     imsize = 512 if torch.cuda.is_available() else 128
@@ -85,11 +77,8 @@ def run_transfer(style_img, content_img):
     import torchvision.models as models
 
     import copy
-    import requests
     import io
 
-    # x = requests.get('https://pytorch.org/tutorials/_static/img/neural-style/picasso.jpg')
-    # x.content
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     imsize = 512 if torch.cuda.is_available() else 128
@@ -154,9 +143,9 @@ def run_transfer(style_img, content_img):
             self.loss = F.mse_loss(G, self.target)
             return input
 
-    import contextlib
+    from IPython.utils import io
 
-    with contextlib.redirect_stdout(io.StringIO()):
+    with io.capture_output() as captured:
         cnn = models.vgg19(pretrained=True).features.to(device).eval();
 
     cnn_normalization_mean = torch.tensor([0.485, 0.456, 0.406]).to(device)
