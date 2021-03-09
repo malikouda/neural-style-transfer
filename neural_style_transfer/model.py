@@ -35,8 +35,8 @@ def transform_images(style_img, content_img):
 
     loader = transforms.Compose(
         [
-            transforms.RandomCrop(imsize),
             transforms.Resize(imsize),
+            transforms.RandomCrop(imsize),
             transforms.ToTensor(),
         ]
     )  # transform it into a torch tensor
