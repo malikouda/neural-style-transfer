@@ -1,7 +1,7 @@
 from IPython.display import display, clear_output
 import ipywidgets as widgets
 import requests
-from model import transform_images, run_transfer
+from .model import transform_images, run_transfer
 
 
 def run_app():
