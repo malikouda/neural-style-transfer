@@ -155,6 +155,3 @@ def run_app():
     url_btn.on_click(on_selection)
     img_btn.on_click(on_selection)
     display(widgets.HBox([url_btn, img_btn]))
-
-
-run_app()
