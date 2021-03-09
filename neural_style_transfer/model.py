@@ -154,7 +154,7 @@ def run_transfer(style_img, content_img):
             self.loss = F.mse_loss(G, self.target)
             return input
 
-    cnn = models.vgg19(pretrained=True).features.to(device).eval()
+    cnn = models.vgg19(pretrained=True).features.to(device).eval();
 
     cnn_normalization_mean = torch.tensor([0.485, 0.456, 0.406]).to(device)
     cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225]).to(device)
